@@ -1,7 +1,10 @@
 // This is the C++ header file for basic try
-Public Class Basic 
+class Basic 
 {
-    void Basic();
-    void foo();
+private:
     int bar;
-}
+
+public:
+    Basic();
+    void foo();
+};
