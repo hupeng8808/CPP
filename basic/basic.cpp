@@ -3,7 +3,7 @@
 #include <iostream>
 void Basic::Basic()
 {
-    int bar = 10'
+    int bar = 10;
 };
 
 void Basic::foo()
