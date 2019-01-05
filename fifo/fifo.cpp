@@ -26,6 +26,7 @@ int MyFIFO::enQueue (int newElement)
     };
 
     fifoQ[back] = newElement; 
+    cout << newElement << " enQueued" << endl;
     return 0;
 };
 
@@ -37,6 +38,7 @@ int MyFIFO::deQueue()
     {
         fifoQ[i] = fifoQ[i+1];
     }; 
+    cout << fifoQ[back] << " deQueued" << endl;
     back--;
     return 0;
 };
