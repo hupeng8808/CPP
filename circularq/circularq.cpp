@@ -23,6 +23,7 @@ int MyCircularQ::enQueue ( int newElement )
     back = (back+1) % 5;
     MyQ[back] = newElement;
     size++;
+	return 0;
 };
 
 
