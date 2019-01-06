@@ -18,6 +18,8 @@ int MyFIFO::enQueue ( int newElement )
 
 int MyFIFO::deQueue()
 {
+    if ( fifoQ.size() == 0)
+        return 1;
     fifoQ.erase(fifoQ.begin());
     return 0;
 };
