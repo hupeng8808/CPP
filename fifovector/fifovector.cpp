@@ -24,9 +24,11 @@ int MyFIFO::deQueue()
 
 int MyFIFO::printElements()
 {
-    for ( int i = 0; i < fifoQ.size(); i++ ) 
+	cout << fifoQ.size()<<endl;
+	int num = fifoQ.size();
+	for ( int i = 0; i < num; i++ ) 
     {
-        cout << fifoQ[i] << " ";
+      cout << fifoQ[i] << " ";
     };
     cout << endl;
     return 0;

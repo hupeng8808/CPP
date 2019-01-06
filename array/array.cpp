@@ -12,7 +12,7 @@ int MyArray::addValue(int numValues)
 {
     int valueIn;
 
-    if ( numValues < 0 | numValues > 128) {
+    if ( (numValues < 0) | (numValues > 128)) {
         return 1;
     };
 
@@ -24,16 +24,18 @@ int MyArray::addValue(int numValues)
         } else {
             arrayValue[i] = valueIn;            
         };
-    }
+	};
+	return 0;
 }
 
 int MyArray::printValue(int numValues)
 {
-    if ( numValues < 0 | numValues > 128) {
+    if ( (numValues < 0) | (numValues > 128)) {
         return 1;
     };
 
     for ( int i = 0; i < numValues; i++) {
         cout<<"["<<i<<"]= "<<arrayValue[i]<<endl;
     };
+	return 0;
 }
