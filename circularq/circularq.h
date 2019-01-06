@@ -2,15 +2,21 @@
 class MyCircularQ
 {
     private:
-        int MyQ[5];
+        int *MyQ;
         int front;
         int back;
         int size;
+        int capacity;
 
     public:
-        MyCircularQ();
+        MyCircularQ(int);
         int enQueue(int);
         int deQueue();
         int printElements();
+        int getFront();
+        int getBack();
+        bool isEmpty();
+        bool isFull();
+        void showQ();
 };
 
