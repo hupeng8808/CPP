@@ -7,6 +7,7 @@ using namespace std;
 int main()
 {
     int m, n, start, end;
+	unsigned int starting;
     Graph *mygraph;
   
     cout << "How many nodes in the graph?"<<endl;
@@ -28,4 +29,7 @@ int main()
 
     cout << "The graph's adjacency matrix is:" << endl;
     mygraph->printMatrix();
+	cout << "From which node do you want to start traverse?" << endl;
+	cin >> starting;
+	mygraph->BFS(starting);
 };

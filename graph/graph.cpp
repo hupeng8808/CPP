@@ -5,23 +5,21 @@
 
 using namespace std;
 
-Graph::Graph ( int m )
+Graph::Graph ( unsigned int m )
 {
     nNodes = m;
-    name = new matrix (m, std::vector<int>(m));
-    for ( int i = 0; i < nNodes; i++ ) 
+	vector <int> visited;
+	vector <int> q;
+    name = new matrix (nNodes, std::vector<int>(nNodes));
+    for ( unsigned int i = 0; i < nNodes; i++ ) 
     {
-        for ( int j = 0; j < nNodes; j++ )
-        {
+        for ( unsigned int j = 0; j < nNodes; j++ )
               cout<<(name->at(i)).at(j)<<endl;
-//            name[i][j] = 0;
-//            cout << "name[" << i << "][" << j << "] = "<<name[i][j]<<endl;
-        }; 
     };
 };
 
 
-int Graph::addEdge ( int start, int end )
+int Graph::addEdge ( unsigned int start, unsigned int end )
 {
     int m, n;
 
@@ -36,11 +34,60 @@ int Graph::addEdge ( int start, int end )
 
 void Graph::printMatrix()
 {
-    for ( int i = 0; i < nNodes; i++ ) 
+    for ( unsigned int i = 0; i < nNodes; i++ ) 
     {
-        for ( int j = 0; j < nNodes; j++ )
+        for ( int unsigned j = 0; j < nNodes; j++ )
            cout<<(name->at(i)).at(j)<< " ";
         cout << "\n";
     };
 };
 
+int Graph::BFS(unsigned int n)
+{
+	if ( (n < 1) || (n > nNodes) )
+		return 1;
+
+	cout << "The Breadth First Traversal path from " << n << " is: "<<endl;
+
+	q.push_back(n-1);
+
+	while (visited.size() < nNodes)
+	{
+		for (unsigned int j = 0; j < nNodes; j++)
+		{
+			if (((name->at(q.front())).at(j) == 1) && !isVisited(j) && !isQueued(j))
+			{
+				q.push_back(j);
+				//cout << "push " << j << " into q" << endl;
+			};
+		};
+		visited.push_back(q.front());
+		//cout << "Push " << q.front() << " into visited" << endl;
+		cout << "Next node is: " << q.front()+1 << " "<<endl;
+		q.erase(q.begin());
+		if (q.size() == 0)
+			return 1;
+	};
+	cout << "\n";
+	return 0;
+};
+
+bool Graph::isVisited(int n)
+{
+	for (unsigned int i = 0; i < visited.size(); i++)
+	{
+		if (visited.at(i) == n)
+			return true;
+	};
+	return false;
+};
+
+bool Graph::isQueued(int n)
+{
+	for (unsigned int i = 0; i < q.size(); i++)
+	{
+		if (q.at(i) == n)
+			return true;
+	};
+	return false;
+};
