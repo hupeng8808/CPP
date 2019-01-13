@@ -16,7 +16,8 @@ class Graph
         Graph(unsigned int);
         int addEdge(unsigned int, unsigned int);
         void printMatrix();
-		int BFS(unsigned int);
+		int BFS(unsigned int); // print Breadth First Search path
+		int SPL(unsigned int, unsigned int); // return Shortest Path Length
 		bool isVisited(int);
 		bool isQueued(int);
 };
