@@ -10,6 +10,7 @@ class Graph
         int nEdges;
         matrix *name;
 		std::vector<int> visited;
+		std::vector<int> parentOfVisited;
 		std::vector<int> q;
 
     public:
@@ -17,7 +18,9 @@ class Graph
         int addEdge(unsigned int, unsigned int);
         void printMatrix();
 		int BFS(unsigned int); // print Breadth First Search path
+		int DFS(unsigned int); //print Deep First Search path
 		int SPL(unsigned int, unsigned int); // return Shortest Path Length
 		bool isVisited(int);
-		bool isQueued(int);
+		bool isInParentOfVisited(int);
+		void clear();
 };

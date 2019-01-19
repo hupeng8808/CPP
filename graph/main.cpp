@@ -26,11 +26,17 @@ int main()
 
     cout << "The graph's adjacency matrix is:" << endl;
     mygraph->printMatrix();
+	
 	cout << "From which node do you want to start traverse?" << endl;
 	cin >> startpoint;
 	mygraph->BFS(startpoint);
 
-	cout << "Check shorted path length from: " << endl;
+	cout << "The Depth First Traversal path is: " << endl;
+	mygraph->clear();
+	mygraph->DFS(startpoint);
+
+	cout << "\n";
+	cout << "Check shortest path length from: " << endl;
 	cin >> startpoint;
 	cout << "to :" << endl;
 	cin >> destination;
