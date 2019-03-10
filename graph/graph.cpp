@@ -40,7 +40,6 @@ void Graph::clear()
 {
 	q.clear();
 	visited.clear();
-	currentPath.clear();
 };
 
 // Breadth - first search(vertex n)
@@ -178,7 +177,6 @@ int Graph::SPL(unsigned int s, unsigned int d)
 {
 	int shortestlength = 0;
 	unsigned dequeued = 0, curlevel = 0, nextlevel = 0;
-	unsigned m;
 
 	if ((s < 1) || (s > nNodes) || (d < 1) || (d > nNodes))
 		return -1;				// if start or destination out of bound
@@ -190,7 +188,6 @@ int Graph::SPL(unsigned int s, unsigned int d)
 	
 	q.push_back(s - 1);			// enqueue start s
 	visited.push_back(s - 1);	// mark start s as visited
-	currentPath.push_back(s - 1);  //put start s as first of current Path
 
 	curlevel = 0;					// no vertex to traverse at current level
 	nextlevel = 1;					// 1 vertex to traverse at next level
@@ -206,7 +203,6 @@ int Graph::SPL(unsigned int s, unsigned int d)
 
 		dequeued = q.front();		// dequeue the 1st element in q
 		q.erase(q.begin());			// dequeue the 1st element in q
-		currentPath.push_back(dequeued); // put current node as last of current Path
 
 		for (unsigned int j = 0; j < nNodes; j++)
 		{
@@ -216,25 +212,11 @@ int Graph::SPL(unsigned int s, unsigned int d)
 				nextlevel++;		//increase nextlevel counter by 1
 
 				visited.push_back(j);	// mark j as visited
-
+				
 				if (j == d - 1)		// if j is the destination, return the length
-				{
-					cout << "The path contains:";
-					cout << d << " ";
-
-					while (currentPath.size() > 0)
-					{
-						m = currentPath.back();
-						currentPath.pop_back();
-					    cout << m+1 << " ";
-					};
-					
-					cout << '\n';
 					return shortestlength;
-				};
 			};
 		};
-		currentPath.pop_back(); // removed dequeued from current Path
 		curlevel--;					// finished exploring adjacent nodes for 1 node at current level, decrease curlevel counter by 1
 	};
 

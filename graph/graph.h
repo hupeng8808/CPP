@@ -11,7 +11,6 @@ class Graph
         matrix *name;
 		std::vector<int> visited;
 		std::vector<int> q;
-		std::vector<int> currentPath;
 
     public:
         Graph(unsigned int);
