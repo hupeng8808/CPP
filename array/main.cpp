@@ -9,7 +9,7 @@ int main() {
 
     MyArray myarray;
 
-    cout<<"ASK: How many values do you want to add?"<<endl;
+    cout<<"ASK AGAIN: How many values do you want to add?"<<endl;
     cin>>num;
     myarray.addValue(num);
     myarray.printValue(num);
