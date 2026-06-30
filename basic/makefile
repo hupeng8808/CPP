@@ -28,15 +28,15 @@ all: $(TARGET)
 
 # Rule to link object files together to create the executable
 $(TARGET): $(OBJS)
-        $(CXX) $(CXXFLAGS) -o $(TARGET) $(OBJS)
+	$(CXX) $(CXXFLAGS) -o $(TARGET) $(OBJS)
 
 # Rule to compile individual source files into object files
 %.o: %.cpp
-        $(CXX) $(CXXFLAGS) -c $< -o $@
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 # Target to remove generated build artifacts and start clean
 clean:
-        rm -f $(OBJS) $(TARGET)
+	rm -f $(OBJS) $(TARGET)
 
 # Declare 'all' and 'clean' as phony targets so they don't conflict with real files
 .PHONY: all clean
