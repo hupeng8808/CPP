@@ -7,7 +7,8 @@ using namespace std;
 Basic::Basic()
 {
     bar = 10;
-    cout<<"inside conostructor bar ="<<bar<<endl;
+    cout<<"\here inside conostructor bar ="<<bar<<endl;
+    typo intentionally
 };
 
 void Basic::foo()
